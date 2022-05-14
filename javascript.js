@@ -3,43 +3,31 @@ function computerPlay() {
     return options[Math.floor(Math.random() * (3 - 0)) + 0];
 }
 
-function playRound(playerSelection, computerSelection) {
+let playerScoreCounter = 1;
+let computerScoreCounter = 1;
+function playRound(e) {
+    const playerSelection = e.target.classList.value;
+    const computerSelection = computerPlay();
+    console.log(playerSelection);
+    console.log(computerSelection);
     // rock > scissors / paper > rock / scissors > paper
     if (playerSelection === computerSelection) {
-        return 0;
+        console.log('empate');
     } else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
         playerSelection === 'paper' && computerSelection === 'rock' ||
         playerSelection === 'scissors' && computerSelection === 'paper') {
-        return 1;
+        console.log('ganaste');
+        const playerScore = document.querySelector('.player-score');
+        playerScore.textContent = playerScoreCounter;
+        playerScoreCounter++;
     } else {
-        return -1;
+        console.log('perdiste');
+        const computerScore = document.querySelector('.computer-score');
+        computerScore.textContent = computerScoreCounter;
+        computerScoreCounter++;
     }
 }
 
-function game() {
-    const hands = ['rock', 'paper', 'scissors'];
-    let PlayerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = hands[window.prompt('Select a number: 1. rock, 2. paper, 3. scissors: ') - 1];
-        let computerSelection = computerPlay();
-        console.log('Elegiste "' + playerSelection + '" y la maquina eligio: "' + computerSelection + '"');
-        let round = playRound(playerSelection, computerSelection);
-        if (round === 0) {
-            PlayerScore += 0;
-            computerScore += 0;
-            console.log('Empate');
-        } else if (round > 0) {
-            PlayerScore++;
-            console.log('Ganaste');
-        } else {
-            computerScore++;
-            console.log('Perdiste');
-        }
+const btnRock = document.querySelector('.rock');
 
-        console.log('*Score* \nPlayer: ' + PlayerScore + ' Computer: ' + computerScore);
-    }
-}
-
-
-console.log(game());
+btnRock.addEventListener('click', playRound);
