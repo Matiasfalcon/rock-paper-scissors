@@ -1,33 +1,81 @@
+// variables
+let playerScoreCounter = 1;
+let computerScoreCounter = 1;
+const computerScore = document.querySelector('.computer-score');//puntaje jugador en el html
+const playerScore = document.querySelector('.player-score');//puntaje computadora en el html
+const message = document.querySelector('.game-message');
+const resultMessage = document.querySelector('.result-message');
+const buttons = document.querySelectorAll('button');
+let rounds = 5;
+
+
+
+
+// funciones
 function computerPlay() {
-    const options = ['rock', 'paper', 'scissors'];
+    const options = ['rock', 'paper', 'scissor'];
     return options[Math.floor(Math.random() * (3 - 0)) + 0];
 }
 
-let playerScoreCounter = 1;
-let computerScoreCounter = 1;
 function playRound(e) {
-    const playerSelection = e.target.classList.value;
-    const computerSelection = computerPlay();
+    let playerSelection = e.target.classList.value;
+    let computerSelection = computerPlay();
     console.log(playerSelection);
     console.log(computerSelection);
     // rock > scissors / paper > rock / scissors > paper
     if (playerSelection === computerSelection) {
         console.log('empate');
-    } else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
-        playerSelection === 'paper' && computerSelection === 'rock' ||
-        playerSelection === 'scissors' && computerSelection === 'paper') {
-        console.log('ganaste');
-        const playerScore = document.querySelector('.player-score');
+        message.textContent = '*' + playerSelection + '*' + ' VS ' + '*' + computerSelection + '*';
+        resultMessage.textContent = '*DRAW*';
         playerScore.textContent = playerScoreCounter;
         playerScoreCounter++;
-    } else {
-        console.log('perdiste');
-        const computerScore = document.querySelector('.computer-score');
         computerScore.textContent = computerScoreCounter;
         computerScoreCounter++;
+        rounds--;
+    } else if (playerSelection === 'rock' && computerSelection === 'scissor' ||
+        playerSelection === 'paper' && computerSelection === 'rock' ||
+        playerSelection === 'scissor' && computerSelection === 'paper') {
+        console.log('ganaste');
+        message.textContent = '*' + playerSelection + '*' + ' VS ' + '*' + computerSelection + '*';
+        resultMessage.textContent = '*YOU WIN*';
+        playerScore.textContent = playerScoreCounter;
+        playerScoreCounter++;
+        rounds--;
+    } else {
+        console.log('perdiste');
+        message.textContent = '*' + playerSelection + '*' + ' VS ' + '*' + computerSelection + '*';
+        resultMessage.textContent = '*YOU LOSE*';
+        computerScore.textContent = computerScoreCounter;
+        computerScoreCounter++;
+        rounds--;
+    }
+    scoreController();
+}
+
+function scoreController() {
+    if (rounds === 0) {
+        if (playerScoreCounter > computerScoreCounter) {
+            message.textContent = playerScore.textContent + ' vs ' + computerScore.textContent;
+            resultMessage.textContent = 'YOU WIN THE GAME';
+        } else {
+            if (playerScoreCounter === computerScoreCounter) {
+                message.textContent = playerScore.textContent + ' vs ' + computerScore.textContent;
+                resultMessage.textContent = 'DRAW THE GAME';
+            } else {
+                message.textContent = playerScore.textContent + ' vs ' + computerScore.textContent;
+                resultMessage.textContent = 'YOU LOSE THE GAME';
+            }
+        }
+        computerScore.textContent = '0';
+        playerScore.textContent = '0';
+        playerScoreCounter = 1;
+        computerScoreCounter = 1;
+        rounds = 5;
+        return;
     }
 }
 
-const btnRock = document.querySelector('.rock');
 
-btnRock.addEventListener('click', playRound);
+buttons.forEach(button => {
+    button.addEventListener('click', playRound);
+});
