@@ -1,8 +1,8 @@
 // variables
 let playerScoreCounter = 1;
 let computerScoreCounter = 1;
-const computerScore = document.querySelector('.computer-score');//puntaje jugador en el html
-const playerScore = document.querySelector('.player-score');//puntaje computadora en el html
+const computerScore = document.querySelector('.computer-score');
+const playerScore = document.querySelector('.player-score');
 const message = document.querySelector('.game-message');
 const resultMessage = document.querySelector('.result-message');
 const buttons = document.querySelectorAll('button');
