@@ -50,6 +50,3 @@ function getComputerChoice() {
     }
     console.log(`Final Score: Player = ${playerScore} Computer = ${computerScore}`);
     }
-    
-    // init the game
-    playGame();
