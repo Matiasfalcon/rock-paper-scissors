@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
 
 * {
-    
+    font-family: "Nabla", system-ui;
     margin: 0;
     padding: 0;
-    background-color: darkslategray;
+    background-color: #000000;
 }
 /* main section */
 .ui-container{
@@ -13,5 +13,62 @@
     align-items: center;
     justify-content: center;
     height: 90vh;
-    font-family: "Bungee Spice", sans-serif;
+}
+
+h1{
+    font-size: 100px;
+    text-shadow: 5px 5px 5px #7a0398;
+}
+
+p{
+    font-size: 40px;
+    text-shadow: 5px 5px 5px #7a0398;
+}
+
+/* option section */
+.opt-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 60%;
+    width: 50%;
+}
+
+/* buttons */
+.btn-rock, .btn-paper, .btn-scissor{
+    width: 20%;
+    height: 40%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* socre section */
+h2{
+    font-size: 65px;
+    text-shadow: 5px 5px 5px #7a0398;
+}
+
+.score-container{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.selection-in-game{
+    font-size: 50px;
+    text-shadow: 5px 5px 5px #7a0398;
+}
+
+/* reset game */
+.reset{
+    border: none;
+    width: 200px;
+    height: 60px;
+    color: antiquewhite;
+    font-size: 30px;
+    cursor: pointer;
+    text-shadow: 5px 5px 5px #b50101;
 }

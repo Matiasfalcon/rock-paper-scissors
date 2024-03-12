@@ -4,25 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Rock, Paper and Scissors game!</title>
 </head>
 
 <body>
     <div class="ui-container">
-        <h1>"Let's play!"</h1>
+        <h1>Let's play!</h1>
         <div class="opt-container">
-            <button class="bot-rock"></button>
-            <button class="bot-paper"></button>
-            <button class="bot-scissor"></button>
+            <button class="btn-rock btn" id="Rock"><img src="images/rock.png" alt="rock"></button>
+            <button class="btn-paper btn" id="Paper"><img src="images/paper.png" alt="paper"></button>
+            <button class="btn-scissor btn" id="Scissor"><img src="images/scissor.png" alt="scissor"></button>
         </div>
+        <p class="selection-in-game">Select your weapon!</p>
         <h2>Score</h2>
         <p>Player vs Computer</p>
         <div class="score-container">
-            <p>0 - 0</p>
+            <p class="p-score">0</p>
+            <p>&nbsp;-&nbsp;</p>
+            <p class="c-score"> 0</p>
         </div>
+        <button class="reset">Reset Game</button>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
