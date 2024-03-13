@@ -4,29 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Rock, Paper and Scissors game!</title>
+    <link rel="stylesheet" href="style/global.css">
+    <link rel="stylesheet" href="style/main.css">
+    <script defer src="script.js"></script>
+    <title>Rock, Paper, Scissor!</title>
 </head>
 
 <body>
-    <div class="ui-container">
-        <h1>Let's play!</h1>
-        <div class="opt-container">
-            <button class="btn-rock btn" id="Rock"><img src="images/rock.png" alt="rock"></button>
-            <button class="btn-paper btn" id="Paper"><img src="images/paper.png" alt="paper"></button>
-            <button class="btn-scissor btn" id="Scissor"><img src="images/scissor.png" alt="scissor"></button>
+    <div class="game-container">
+        <h1>Let's Play!</h1>
+        <h1>Rock, Paper, Scissor!</h1>
+        <div class="options-container">
+            <button class="btn-rock" id="rock">
+                <img src="images/rock.png" alt="rock">
+            </button>
+            <button class="btn-paper" id="paper">
+                <img src="images/paper.png" alt="paper">
+            </button>
+            <button class="btn-scissor" id="scissor">
+                <img src="images/scissor.png" alt="scissor">
+            </button>
         </div>
-        <p class="selection-in-game">Select your weapon!</p>
-        <h2>Score</h2>
-        <p>Player vs Computer</p>
+        <p class="selection-message">Welcome! Let's play Rock, Paper, Scissor!</p>
+        <p>Player vs. Computer</p>
+        <h2>Score:</h2>
         <div class="score-container">
-            <p class="p-score">0</p>
+            <p class="player-score">0</p>
             <p>&nbsp;-&nbsp;</p>
-            <p class="c-score"> 0</p>
+            <p class="computer-score">0</p>
         </div>
-        <button class="reset">Reset Game</button>
+        <button class="reset-game">Reset Game</button>
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>

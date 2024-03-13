@@ -1,0 +1,10 @@
+/* Import font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
+
+/* Global styles */
+* {
+  font-family: "Nabla", system-ui;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
